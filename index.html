@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7f1d1d">
+  <title>Wonton Kuah | Hangat, Gurih, Bikin Nagih</title>
+  <style>
+    :root{--red:#8f2025;--red-dark:#5f1118;--cream:#fff8ef;--gold:#f4b942;--ink:#2b1918;--muted:#765e59;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--cream);color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    .topbar{background:var(--red-dark);color:#fff;text-align:center;padding:9px 14px;font-size:.88rem;letter-spacing:.3px}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,248,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid #eadbd0}
+    .nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.16rem;color:var(--red-dark)}
+    .brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--red);color:white;font-size:1.45rem;box-shadow:0 6px 15px #8f202533}
+    .navlinks{display:flex;align-items:center;gap:25px;font-weight:650;font-size:.94rem}
+    .navlinks a:hover{color:var(--red)}
+    .btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:999px;font-weight:800;cursor:pointer;transition:transform .2s,box-shadow .2s;background:var(--red);color:#fff;box-shadow:0 8px 20px #8f20252b}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #8f20253d}
+    .btn.gold{background:var(--gold);color:#42230d;box-shadow:0 8px 20px #f4b94238}
+    .btn.outline{background:transparent;color:var(--red);border:1.5px solid #d8aaa5;box-shadow:none}
+    .hero{overflow:hidden;position:relative;background:radial-gradient(circle at 78% 35%,#b9473a 0,#8f2025 35%,#5f1118 100%);color:#fff}
+    .hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;width:420px;height:420px;right:-90px;top:-190px}
+    .hero:after{width:300px;height:300px;right:100px;top:auto;bottom:-210px}
+    .hero-inner{position:relative;z-index:1;max-width:1150px;margin:auto;padding:76px 22px 82px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#ffffff18;border:1px solid #ffffff2e;padding:8px 13px;border-radius:999px;font-size:.84rem;font-weight:750;letter-spacing:.4px}
+    h1{font-size:clamp(2.7rem,5vw,4.8rem);line-height:1.03;letter-spacing:-2.5px;margin:22px 0 18px;max-width:650px}
+    h1 span{color:var(--gold)}
+    .hero p{color:#f8e4dc;font-size:1.08rem;line-height:1.75;max-width:540px;margin:0 0 27px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{display:flex;align-items:center;gap:10px;margin-top:27px;color:#f5d5cb;font-size:.9rem}
+    .hero-note strong{color:#fff}
+    .food-art{position:relative;min-height:390px;display:grid;place-items:center}
+    .food-glow{position:absolute;width:min(100%,390px);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#f6c36b,#c97836);box-shadow:0 0 0 18px #ffffff0a,0 0 0 38px #ffffff08}
+    .bowl{position:relative;width:min(100%,390px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#fff9e8 0 42%,#d9c4a4 43% 48%,#5c2520 49% 58%,#2d1112 60% 66%,transparent 67%);filter:drop-shadow(0 22px 24px #27090b55);font-size:clamp(5rem,12vw,9rem)}
+    .bowl .dumpling{position:absolute;font-size:clamp(2.4rem,5vw,4rem);filter:drop-shadow(0 5px 3px #6e321c55)}
+    .d1{top:25%;left:29%;transform:rotate(-16deg)}.d2{top:31%;right:25%;transform:rotate(12deg)}.d3{top:46%;left:22%;transform:rotate(8deg)}.d4{top:49%;right:22%;transform:rotate(-12deg)}.d5{top:38%;left:43%;transform:rotate(5deg)}
+    .float-tag{position:absolute;right:-2px;bottom:30px;background:#fff8ef;color:var(--red-dark);padding:14px 17px;border-radius:18px;box-shadow:0 15px 30px #27090b35;transform:rotate(4deg);font-weight:900}
+    .float-tag small{display:block;color:var(--muted);font-weight:650;font-size:.75rem;margin-bottom:3px}
+    section{padding:78px 22px}
+    .container{max-width:1100px;margin:auto}
+    .section-head{text-align:center;max-width:660px;margin:0 auto 38px}
+    .kicker{color:var(--red);font-weight:900;text-transform:uppercase;font-size:.78rem;letter-spacing:2px}
+    h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-1.2px;line-height:1.12;margin:11px 0 13px}
+    .section-head p{color:var(--muted);line-height:1.7;margin:0}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .menu-card{background:#fff;border:1px solid #efdfd3;border-radius:25px;padding:22px;box-shadow:0 10px 30px #51251a0a;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+    .menu-card:hover{transform:translateY(-6px);box-shadow:0 18px 35px #51251a14}
+    .menu-visual{height:190px;border-radius:19px;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle,#ffedcc,#f9d7a2)}
+    .menu-visual.spicy{background:radial-gradient(circle,#ffd9a0,#e99a63)}
+    .menu-visual.cheese{background:radial-gradient(circle,#fff0b8,#f1c45f)}
+    .menu-visual:before{content:"";position:absolute;width:145px;height:145px;border-radius:50%;background:#fff8ed;box-shadow:0 9px 0 #d6b38a,0 15px 25px #5f281d25}
+    .food-emoji{position:relative;z-index:1;font-size:5.5rem;filter:drop-shadow(0 8px 5px #6e321c25)}
+    .pill{position:absolute;top:13px;left:13px;z-index:2;background:#fff;color:var(--red);font-size:.72rem;font-weight:900;padding:7px 10px;border-radius:999px}
+    .menu-card h3{font-size:1.35rem;margin:19px 0 7px}
+    .menu-card p{color:var(--muted);line-height:1.6;font-size:.93rem;margin:0 0 18px;flex:1}
+    .price-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+    .price{font-size:1.35rem;font-weight:950;color:var(--red-dark)}
+    .price small{font-size:.72rem;color:var(--muted);font-weight:650}
+    .add-btn{border:0;border-radius:12px;background:#f8e8dc;color:var(--red-dark);font-size:1.2rem;font-weight:900;width:43px;height:43px;cursor:pointer}
+    .add-btn:hover{background:var(--red);color:#fff}
+    .order-panel{margin-top:34px;background:#fff;border:1px solid #efdfd3;border-radius:24px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+    .order-panel h3{margin:0 0 7px;font-size:1.2rem}
+    .order-panel p{margin:0;color:var(--muted);line-height:1.6;font-size:.92rem}
+    .cart-items{font-size:.9rem;line-height:1.8;margin-top:9px;color:var(--red-dark);font-weight:650;white-space:pre-line}
+    .total{font-size:1.35rem;font-weight:950;color:var(--red-dark);text-align:right;margin-bottom:10px}
+    .total small{display:block;font-size:.75rem;color:var(--muted);font-weight:600}
+    .features{background:#f5e9dc}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature{background:#fff9f2;border-radius:20px;padding:25px;text-align:center;border:1px solid #ead8c9}
+    .feature-icon{width:54px;height:54px;margin:0 auto 13px;display:grid;place-items:center;background:#f8e2d2;border-radius:17px;font-size:1.6rem}
+    .feature h3{margin:0 0 8px}.feature p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.6}
+    .cta{padding:65px 22px;background:var(--red-dark);color:#fff;text-align:center}
+    .cta h2{max-width:700px;margin:10px auto 14px}.cta p{color:#f1d5ce;line-height:1.7;margin:0 auto 25px;max-width:580px}
+    footer{background:#350b10;color:#dcbfba;padding:24px 22px;text-align:center;font-size:.85rem}
+    .wa-float{position:fixed;right:20px;bottom:20px;z-index:20;width:58px;height:58px;border-radius:50%;background:#20bd65;color:#fff;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 8px 25px #0003;border:3px solid #fff}
+    .toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);background:#2c1715;color:#fff;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:30;font-size:.9rem}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:800px){.hero-inner{grid-template-columns:1fr;padding-top:55px;text-align:center;gap:15px}.hero p{margin-left:auto;margin-right:auto}.hero-actions,.hero-note{justify-content:center}.food-art{min-height:330px}.food-glow,.bowl{width:310px}.float-tag{right:8%;bottom:15px}.menu-grid{grid-template-columns:1fr 1fr}.navlinks{gap:13px}.navlinks a:not(.btn){display:none}}
+    @media(max-width:540px){.nav{padding:12px 16px}.brand{font-size:1rem}.navlinks .btn{padding:10px 13px;font-size:.84rem}.hero-inner{padding:48px 18px 60px}h1{letter-spacing:-1.5px}.food-art{min-height:285px}.food-glow,.bowl{width:265px}.menu-grid,.feature-grid{grid-template-columns:1fr}.menu-visual{height:180px}.order-panel{grid-template-columns:1fr}.order-total-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}.total{text-align:left;margin:0}.order-panel .btn{width:100%}section{padding:58px 17px}.cta{padding:55px 18px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">🥟 Wonton kuah hangat, gurih, dan bikin nagih!</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#beranda"><span class="brand-mark">🥟</span><span>WONTON<span style="color:#c78b32">KUY!</span></span></a>
+      <div class="navlinks">
+        <a href="#menu">Menu</a><a href="#tentang">Kenapa Kami?</a>
+        <a class="btn" href="#pesan">Pesan Sekarang <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">✨ Dibuat fresh, disajikan hangat</div>
+          <h1>Semangkuk hangat, <span>bahagia</span> di setiap suapan.</h1>
+          <p>Nikmati wonton kuah dengan isian lezat dan kuah gurih yang bikin nyaman. Pilih rasa favoritmu, lalu pesan dengan mudah lewat WhatsApp!</p>
+          <div class="hero-actions">
+            <a class="btn gold" href="#menu">🍜 Lihat Menu</a>
+            <a class="btn outline" style="color:#fff;border-color:#ffffff65" href="https://wa.me/6281999986745?text=Halo%20WONTONKUY%2C%20saya%20mau%20pesan%20wonton%20kuah." target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          </div>
+          <div class="hero-note"><span>⭐</span><span><strong>3 pilihan rasa</strong> — ada yang original, pedas, sampai cheesy!</span></div>
+        </div>
+        <div class="food-art" aria-label="Ilustrasi mangkuk wonton kuah">
+          <div class="food-glow"></div>
+          <div class="bowl"><span class="dumpling d1">🥟</span><span class="dumpling d2">🥟</span><span class="dumpling d3">🥟</span><span class="dumpling d4">🥟</span><span class="dumpling d5">🥟</span></div>
+          <div class="float-tag"><small>Mulai dari</small>Rp8.000 <span style="color:#b98225">♥</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Menu favorit</div>
+          <h2>Pilih rasa, nikmati hangatnya</h2>
+          <p>Tiga varian wonton kuah yang siap menemani waktu santai kamu. Klik tombol plus untuk memasukkan menu ke pesanan.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <div class="menu-visual"><span class="pill">BEST SELLER</span><span class="food-emoji">🥟</span></div>
+            <h3>Original</h3>
+            <p>Rasa gurih yang sederhana dan nikmat. Cocok buat kamu yang suka cita rasa klasik.</p>
+            <div class="price-row"><div class="price">Rp8.000 <small>/ porsi</small></div><button class="add-btn" aria-label="Tambah Original" onclick="addItem('Original',8000)">+</button></div>
+          </article>
+          <article class="menu-card">
+            <div class="menu-visual spicy"><span class="pill">PEDAS NAGIH 🌶️</span><span class="food-emoji">🌶️</span></div>
+            <h3>Spacy</h3>
+            <p>Kuah dengan sensasi pedas yang menggugah selera. Pas buat pencinta tantangan pedas!</p>
+            <div class="price-row"><div class="price">Rp10.000 <small>/ porsi</small></div><button class="add-btn" aria-label="Tambah Spacy" onclick="addItem('Spacy',10000)">+</button></div>
+          </article>
+          <article class="menu-card">
+            <div class="menu-visual cheese"><span class="pill">CHEESY 🧀</span><span class="food-emoji">🧀</span></div>
+            <h3>Keju</h3>
+            <p>Perpaduan wonton kuah dan rasa keju yang creamy untuk pengalaman makan lebih spesial.</p>
+            <div class="price-row"><div class="price">Rp12.000 <small>/ porsi</small></div><button class="add-btn" aria-label="Tambah Keju" onclick="addItem('Keju',12000)">+</button></div>
+          </article>
+        </div>
+
+        <div class="order-panel" id="pesan">
+          <div>
+            <h3>🛍️ Keranjang pesanan kamu</h3>
+            <p>Pilih menu di atas untuk mulai memesan. Pesanan akan dirangkum otomatis sebelum dikirim ke WhatsApp.</p>
+            <div class="cart-items" id="cartItems">Keranjang masih kosong. Yuk, pilih rasa favoritmu!</div>
+          </div>
+          <div class="order-total-wrap">
+            <div class="total"><small>Total sementara</small><span id="total">Rp0</span></div>
+            <button class="btn" onclick="sendOrder()">Pesan via WhatsApp ↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="tentang">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Kenapa WONTONKUY?</div>
+          <h2>Enak itu nggak harus ribet</h2>
+          <p>Pesan gampang, pilih rasa sesuai selera, dan nikmati semangkuk kehangatan kapan pun kamu ingin.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature"><div class="feature-icon">🍲</div><h3>Disajikan Hangat</h3><p>Wonton kuah yang pas dinikmati saat ingin makanan yang nyaman dan mengenyangkan.</p></div>
+          <div class="feature"><div class="feature-icon">💖</div><h3>3 Varian Rasa</h3><p>Dari original yang gurih, spacy yang pedas, sampai keju yang creamy.</p></div>
+          <div class="feature"><div class="feature-icon">📱</div><h3>Pesan Praktis</h3><p>Pilih menu dan jumlahnya, lalu lanjutkan pesanan langsung melalui WhatsApp.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="kicker" style="color:#f4b942">Lagi pengin yang hangat?</div>
+      <h2>Wonton kuah enakmu sudah menunggu! 🥟</h2>
+      <p>Pilih rasa favorit, siapkan selera, dan hubungi kami untuk melakukan pemesanan.</p>
+      <a class="btn gold" href="https://wa.me/6281999986745?text=Halo%20WONTONKUY%2C%20saya%20mau%20pesan%20wonton%20kuah." target="_blank" rel="noopener">💬 Chat WhatsApp: 0819-9998-6745</a>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> WONTONKUY! · Wonton Kuah Hangat, Gurih, Bikin Nagih</footer>
+  <a class="wa-float" href="https://wa.me/6281999986745?text=Halo%20WONTONKUY%2C%20saya%20mau%20pesan%20wonton%20kuah." target="_blank" rel="noopener" aria-label="Chat WhatsApp">☏</a>
+  <div class="toast" id="toast" role="status">Menu ditambahkan!</div>
+
+  <script>
+    const prices = {Original:8000, Spacy:10000, Keju:12000};
+    const cart = {Original:0, Spacy:0, Keju:0};
+    const rupiah = n => 'Rp' + n.toLocaleString('id-ID');
+    function addItem(name, price) {
+      cart[name]++;
+      renderCart();
+      const toast = document.getElementById('toast');
+      toast.textContent = name + ' ditambahkan ke keranjang!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+    function renderCart() {
+      const entries = Object.entries(cart).filter(([name, qty]) => qty > 0);
+      const list = document.getElementById('cartItems');
+      if (!entries.length) list.textContent = 'Keranjang masih kosong. Yuk, pilih rasa favoritmu!';
+      else list.textContent = entries.map(([name, qty]) => `${name} × ${qty} — ${rupiah(prices[name] * qty)}`).join('\\n');
+      const total = entries.reduce((sum, [name, qty]) => sum + prices[name] * qty, 0);
+      document.getElementById('total').textContent = rupiah(total);
+    }
+    function sendOrder() {
+      const entries = Object.entries(cart).filter(([name, qty]) => qty > 0);
+      if (!entries.length) {
+        const toast = document.getElementById('toast');
+        toast.textContent = 'Pilih menu terlebih dahulu, ya!';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+        return;
+      }
+      const total = entries.reduce((sum, [name, qty]) => sum + prices[name] * qty, 0);
+      let message = 'Halo WONTONKUY! Saya mau pesan wonton kuah:%0A';
+      message += entries.map(([name, qty]) => `• ${name} x ${qty} = ${rupiah(prices[name] * qty)}`).join('%0A');
+      message += `%0A*Total sementara: ${rupiah(total)}*%0A%0ANama:%0AAlamat/pengambilan:`;
+      window.open('https://wa.me/6281999986745?text=' + encodeURIComponent(decodeURIComponent(message)), '_blank', 'noopener');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
